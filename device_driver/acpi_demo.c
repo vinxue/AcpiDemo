@@ -22,6 +22,16 @@ static const struct acpi_device_id demo_device_ids[] = {
 	{"", 0},
 };
 
+static void acpi_demo_notify(struct acpi_device *acpi_dev, u32 event)
+{
+	if (event != 0x80) {
+		printk("acpi-demo: received unknown event (0x%x)\n", event);
+		return;
+	}
+
+	/* Not implemented yet */
+}
+
 static int acpi_demo_add(struct acpi_device *device)
 {
 	printk("acpi-demo: acpi_demo_add\n");
@@ -43,6 +53,7 @@ static struct acpi_driver acpi_demo_driver = {
 	.ops	= {
 		.add	= acpi_demo_add,
 		.remove	= acpi_demo_remove,
+		.notify	= acpi_demo_notify,
 	},
 };
 
