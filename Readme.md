@@ -38,3 +38,7 @@ obj-y					+= acpi_demo_op.o
 ~ # cat /proc/acpi/demo
 [   58.278745] acpi_demo_op: return data: 0xCCDDEEFF
 ```
+## Boot Command (Windows)
+```
+"c:\Program Files\qemu\qemu-system-x86_64.exe" -bios OVMF.fd -serial stdio -hda kernel.vhd
+```
